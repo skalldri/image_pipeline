@@ -2,6 +2,31 @@
 Changelog for package camera_calibration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+5.0.3 (2024-07-16)
+------------------
+* Added stereo calibration using charuco board (backport `#976 <https://github.com/ros-perception/image_pipeline/issues/976>`_) (`#1002 <https://github.com/ros-perception/image_pipeline/issues/1002>`_)
+  From `#972 <https://github.com/ros-perception/image_pipeline/issues/972>`_
+  Doing this first for rolling.
+  This was a TODO in the repository, opening this PR to add this feature.
+  - The main issue why this wasn't possible imo is the way `mk_obj_points`
+  works. I'm using the inbuilt opencv function to get the points there.
+  - The other is a condition when aruco markers are detected they are
+  added as good points, This is fine in case of mono but in stereo these
+  have to be the same number as the object points to find matches although
+  this should be possible with aruco.<hr>This is an automatic backport of
+  pull request `#976 <https://github.com/ros-perception/image_pipeline/issues/976>`_ done by [Mergify](https://mergify.com).
+  Co-authored-by: Myron Rodrigues <41271144+MRo47@users.noreply.github.com>
+* Change camera info message to lower case (backport `#1005 <https://github.com/ros-perception/image_pipeline/issues/1005>`_) (`#1007 <https://github.com/ros-perception/image_pipeline/issues/1007>`_)
+  Change camera info message to lower case since message type had been
+  change in rolling and humble.
+  [](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/CameraInfo.msg)<hr>This
+  is an automatic backport of pull request `#1005 <https://github.com/ros-perception/image_pipeline/issues/1005>`_ done by
+  [Mergify](https://mergify.com).
+  ---------
+  Co-authored-by: SFhmichael <146928033+SFhmichael@users.noreply.github.com>
+  Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
+* Contributors: mergify[bot]
+
 5.0.2 (2024-05-27)
 ------------------
 * fix: cv2.aruco.interpolateCornersCharuco is deprecated (backport `#979 <https://github.com/ros-perception/image_pipeline/issues/979>`_) (`#980 <https://github.com/ros-perception/image_pipeline/issues/980>`_)
